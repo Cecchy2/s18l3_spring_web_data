@@ -53,4 +53,9 @@ public class BlogPostsService {
         found.setTempoDiLettura(body.getTempoDiLettura());
         return found;
     }
+
+    public void findByIdAndDelete (UUID blogPostId){
+       BlogPost found= this.blogPostsRepository.findById(blogPostId).orElseThrow(()->new NotFoundException(blogPostId));
+       blogPostsRepository.delete(found);
+    }
 }

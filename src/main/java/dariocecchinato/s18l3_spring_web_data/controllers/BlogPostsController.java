@@ -39,7 +39,10 @@ public class BlogPostsController {
     public BlogPost getBlogByIdAndUpdate(@PathVariable UUID blogPostId, @RequestBody PayloadBodyBlogPost body){
         return blogPostsService.findByIdAndUpdate(blogPostId,body);
     }
-/*
+
     @DeleteMapping("/{blogPostId}")
-    public void getBlogByIdAndDelete(@PathVariable UUID blogPostId){}*/
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void getBlogByIdAndDelete(@PathVariable UUID blogPostId){
+        blogPostsService.findByIdAndDelete(blogPostId);
+    }
 }
