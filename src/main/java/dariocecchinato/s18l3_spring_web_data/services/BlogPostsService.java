@@ -43,4 +43,14 @@ public class BlogPostsService {
     public BlogPost findById(UUID blogPostId){
         return this.blogPostsRepository.findById(blogPostId).orElseThrow(()->new NotFoundException(blogPostId));
     }
+
+    public BlogPost findByIdAndUpdate (UUID blogPostId, PayloadBodyBlogPost body){
+        BlogPost found = this.blogPostsRepository.findById(blogPostId).orElseThrow(()->new NotFoundException(blogPostId));
+        found.setTitolo(body.getTitolo());
+        found.setCategoria(body.getCategoria());
+        found.setCover("https://fastly.picsum.photos/id/848/200/300.jpg?hmac=cNClhUSP4IM6ZT6RTqdeCOLWYEJYBNXaqdflgf_EqD8");
+        found.setContenuto(body.getContenuto());
+        found.setTempoDiLettura(body.getTempoDiLettura());
+        return found;
+    }
 }

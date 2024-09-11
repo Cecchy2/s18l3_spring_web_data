@@ -35,11 +35,11 @@ public class BlogPostsController {
         return this.blogPostsService.findById(blogPostId);
     }
 
-
-/*
     @PutMapping("/{blogPostId}")
-    public BlogPost getBlogByIdAndUpdate(@PathVariable UUID blogPostId, @RequestBody BlogPost body){}
-
+    public BlogPost getBlogByIdAndUpdate(@PathVariable UUID blogPostId, @RequestBody PayloadBodyBlogPost body){
+        return blogPostsService.findByIdAndUpdate(blogPostId,body);
+    }
+/*
     @DeleteMapping("/{blogPostId}")
     public void getBlogByIdAndDelete(@PathVariable UUID blogPostId){}*/
 }
