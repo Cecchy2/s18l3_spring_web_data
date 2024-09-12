@@ -25,7 +25,7 @@ public class ExceptionsHandler {
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR) // 500
     public ErrorsPayload handleGenericErrors(Exception ex){
-        ex.printStackTrace(); // Non dimentichiamoci che è ESTREMAMENTE UTILE sapere dove è stato generata l'eccezione per poterla fixare
-        return new ErrorsPayload("Problema lato server, giuro che lo risolveremo presto!", LocalDateTime.now());
+        ex.printStackTrace();
+        return new ErrorsPayload("Problema del server, riprova tra qualche minuto", LocalDateTime.now());
     }
 }

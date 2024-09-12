@@ -20,7 +20,7 @@ public class AutoriService {
 
 
 public Page<Autore> findAll(int page, int size, String sortby){
-    if(page > 100) page = 100;
+    if(page > 10) page = 10;
     Pageable pageable = PageRequest.of(page, size, Sort.by(sortby));
     return this.autoriRepository.findAll(pageable);
 }

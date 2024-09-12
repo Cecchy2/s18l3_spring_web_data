@@ -12,7 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+
 import java.util.UUID;
 
 @Service
@@ -24,7 +24,7 @@ public class BlogPostsService {
     private AutoriService autoriService;
 
     public Page<BlogPost> findAllBlogs (int page, int size, String sortBy){
-        if(page > 100) page = 100;
+        if(page > 10) page = 10;
 
         Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy));
         return this.blogPostsRepository.findAll(pageable);
